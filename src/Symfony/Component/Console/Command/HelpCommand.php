@@ -42,7 +42,7 @@ class HelpCommand extends Command
             ))
             ->setDescription('Displays help for a command')
             ->setHelp(<<<EOF
-The <info>list</info> command displays all the available commands:
+The <info>list</info> command lists all commands:
 
   <info>php %command.php_self% list</info>
 
