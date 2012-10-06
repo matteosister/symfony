@@ -46,5 +46,10 @@ class HelpCommandTest extends \PHPUnit_Framework_TestCase
 
         $commandTester->execute(array('command_name' => 'list', '--xml' => true));
         $this->assertRegExp('/<command/', $commandTester->getDisplay(), '->execute() returns an XML help text if --xml is passed');
+
+        $application = new Application();
+        $commandTester = new CommandTester($application->get('help'));
+        $commandTester->execute(array('command_name' => 'help'));
+        $this->assertRegExp('/The list command displays all the available commands/', $commandTester->getDisplay(), '->execute() returns an help about the list command');
     }
 }
